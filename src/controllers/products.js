@@ -13,7 +13,7 @@ export const getProducts = async (req, res) => {
         res.status(500).send("Error al consultar los productos: ", e)
     }
 }
-export const getProduct = async (res, req) => {
+export const getProduct = async (req, res) => {
     try {
         const idProd = req.params.pid
         const prod = await productModel.findById(idProd)
@@ -27,17 +27,17 @@ export const getProduct = async (res, req) => {
     }
 }
 
-export const createProduct = async (res, req) => {
+export const createProduct = async (req, res) => {
     try {
         const product = req.body
         const respuesta = await productModel.create(product)
-        res.status(200).send("Producto creado correctamente")
+        res.status(201).send("Producto creado correctamente")
     }catch(e){
         res.status(500).send("Error al crear producto: ", e)
     }
 }
 
-export const updateProduct = async (res, req) => {
+export const updateProduct = async (req, res) => {
     try {
         const idProd = req.params.pid
         const updateProduct = req.body
@@ -48,7 +48,7 @@ export const updateProduct = async (res, req) => {
     }
 }
 
-export const deleteProduct = async (res, req) => {
+export const deleteProduct = async (req, res) => {
     try {
         const idProd = req.params.pid
         const respuesta = await productModel.findByIdAndDelete(idProd)

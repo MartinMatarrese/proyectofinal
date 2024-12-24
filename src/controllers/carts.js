@@ -13,7 +13,7 @@ export const getCart = async (req, res) => {
 export const createCart = async (req, res) => {
     try {
         const respuesta = await cartModel.create({products: []})
-        res.status(200).send(respuesta)
+        res.status(201).send(respuesta)
     } catch(e) {
         res.status(500).send(e)
     }

@@ -1,4 +1,5 @@
 import express from "express";
+import mongoose from "mongoose";
 import { create } from "express-handlebars";
 import { Server } from "socket.io";
 import path  from "path";
